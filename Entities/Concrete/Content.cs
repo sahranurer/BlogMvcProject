@@ -20,8 +20,8 @@ namespace Entities.Concrete
         public virtual Heading Heading { get; set; }
 
         //relationship spefication
-        //public int WriterId { get; set; }
-        //public virtual Writer Writer { get; set; }
+        public int? WriterId { get; set; }
+        public virtual Writer Writer { get; set; }
 
     }
 }
