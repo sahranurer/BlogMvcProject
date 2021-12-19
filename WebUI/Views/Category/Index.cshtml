@@ -2,26 +2,32 @@
 @{
     Layout = null;
 }
-
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <h3>Table Example</h3>
 <br/>
-<table>
+<table class="table table-bordered">
     <tr>
         <th>Category Id</th>
         <th>Category Name</th>
         <th>Category Description</th>
         <th>Category State</th>
+        <th>Update</th>
     </tr>
     <tr>
         <td>1</td>
         <td>Education</td>
         <td>Description</td>
         <td>True</td>
+        <td><button class="btn btn-success">Update</button></td>
     </tr>
     <tr>
         <td>2</td>
         <td>Sports</td>
         <td>Description</td>
         <td>True</td>
+        <td><button class="btn btn-success">Update</button></td>
     </tr>
 </table>
+<button class="btn btn-info">New Category</button>
+<button class="btn btn-warning">Category List</button>
+<button class="btn btn-danger">Category Description</button>
