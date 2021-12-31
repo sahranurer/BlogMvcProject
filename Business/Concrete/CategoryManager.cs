@@ -18,14 +18,14 @@ namespace Business.Concrete
         }
         public void Add(Category category)
         {
-            if (category.CategoryName=="" || category.CategoryName.Length<=3 ||category.CategoryDescription=="" || category.CategoryName.Length>=51)
-            {
-                //error message
-            }
-            else
-            {
+            //if (category.CategoryName=="" || category.CategoryName.Length<=3 ||category.CategoryDescription=="" || category.CategoryName.Length>=51)
+            //{
+            //    //error message
+            //}
+            //else
+            //{
                 repository.Insert(category);
-            }
+            //}
         }
     }
 }

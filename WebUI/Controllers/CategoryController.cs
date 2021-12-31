@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,12 @@ namespace WebUI.Controllers
         {
             var result = cm.GetAll();
             return View(result);
+        }
+        public ActionResult AddCategory(Category c)
+        {
+            cm.Add(c);
+            return RedirectToAction("GetCategoryList");
+
         }
     }
 }
