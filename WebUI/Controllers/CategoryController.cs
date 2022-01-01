@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using DataAccess.EntityFramework;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace WebUI.Controllers
 {
     public class CategoryController : Controller
     {
-        CategoryManager cm = new CategoryManager();
+        CategoryManager cm = new CategoryManager(new EfCategoryDal());
         // GET: Category
         public ActionResult Index()
         {
@@ -18,7 +19,7 @@ namespace WebUI.Controllers
         }
         public ActionResult GetCategoryList()
         {
-            var result = cm.GetAll();
+            var result = cm.GetCategories();
             return View(result);
         }
 
@@ -33,7 +34,7 @@ namespace WebUI.Controllers
         [HttpPost]
         public ActionResult AddCategory(Category c)
         {
-            cm.Add(c);
+            //cm.Add(c);
             return RedirectToAction("GetCategoryList");
 
         }
