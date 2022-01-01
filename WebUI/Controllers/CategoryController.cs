@@ -21,6 +21,16 @@ namespace WebUI.Controllers
             var result = cm.GetAll();
             return View(result);
         }
+
+        [HttpGet] //sayfa yüklenince görüntüle 
+        public ActionResult AddCategory()
+        {
+            return View();
+        }
+
+
+
+        [HttpPost]
         public ActionResult AddCategory(Category c)
         {
             cm.Add(c);
