@@ -47,6 +47,12 @@ namespace WebUI.Controllers
             return View();
         }
 
+        public ActionResult DeleteCategory(int id)
+        {
+            var results = cm.GetbyId(id);
+            cm.Delete(results);
+             return RedirectToAction("Index");
+        }
 
     }
 }
