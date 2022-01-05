@@ -40,6 +40,9 @@ namespace Business.Concrete
             return _categoryDal.List();
         }
 
-
+        public void Update(Category category)
+        {
+            _categoryDal.Update(category);
+        }
     }
 }

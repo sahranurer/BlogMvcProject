@@ -54,5 +54,21 @@ namespace WebUI.Controllers
              return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult EditCategory(int id)
+        {
+            var results = cm.GetbyId(id);
+            return View(results);
+           
+        }
+
+        [HttpPost]
+        public ActionResult EditCategory(Category p)
+        {
+            cm.Update(p);
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

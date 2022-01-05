@@ -13,5 +13,6 @@ namespace Business.Abstract
         void Add(Category category);
         void Delete(Category category);
         Category GetbyId(int id);
+        void Update(Category category);
     }
 }
