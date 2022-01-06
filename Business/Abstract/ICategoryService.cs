@@ -9,6 +9,8 @@ namespace Business.Abstract
 {
     public interface ICategoryService
     {
+       
+
         List<Category> GetCategories();
         void Add(Category category);
         void Delete(Category category);

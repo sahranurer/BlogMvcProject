@@ -41,7 +41,7 @@ namespace WebUI.Controllers
             if (results.IsValid)
             {
                 cm.Add(c);
-                return RedirectToAction("GetCategoryList");
+                return RedirectToAction("Index");
             }
             else
             {
