@@ -18,6 +18,7 @@ namespace WebUI.Controllers
         HeadingValidator hv = new HeadingValidator();
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         WriterManager wm = new WriterManager(new EfWriterDal());
+
          // GET: Heading
         public ActionResult Index()
         {
@@ -78,7 +79,37 @@ namespace WebUI.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult EditHeading(int id)
+        {
 
+            List<SelectListItem> selects = (from x in cm.GetCategories()
+                                            select new SelectListItem
+                                            {
+                                                Text = x.CategoryName,
+                                                Value = x.CategoryId.ToString()
+                                            }).ToList();
+            
+
+
+            ViewBag.vlc = selects;
+            var values = hm.GetById(id);
+            return View(values);
+        }
+
+        public ActionResult EditHeading(Heading heading)
+        {
+            hm.Update(heading);
+            return RedirectToAction("Index");
+        }
+       
+        public ActionResult DeleteHeading(int id)
+        {
+            var results = hm.GetById(id);
+            results.HeadingStatus = false;
+            hm.Delete(results);
+            return RedirectToAction("Index");
+        }
 
 
 

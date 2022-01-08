@@ -13,6 +13,7 @@ namespace Business.ValidationRules.FluentValidation
         public HeadingValidator()
         {
             RuleFor(x => x.HeadingName).NotEmpty().WithMessage("Başlık alanı boş geçilemez");
+            RuleFor(x => x.WriterId).NotEmpty().WithMessage("Yazar alanı boş geçilemez");
             //RuleFor(x => x.HeadingDate).NotEmpty().WithMessage("Date alanı boş bırakılamaz");
         }
     }

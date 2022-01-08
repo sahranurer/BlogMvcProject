@@ -79,6 +79,22 @@
     <Compile Include="Migrations\202201061842481_mig_writer_titleAdd.designer.cs">
       <DependentUpon>202201061842481_mig_writer_titleAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201081630098_mig_writer_editimg.cs" />
+    <Compile Include="Migrations\202201081630098_mig_writer_editimg.designer.cs">
+      <DependentUpon>202201081630098_mig_writer_editimg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201081707153_mig_writer_addstatus.cs" />
+    <Compile Include="Migrations\202201081707153_mig_writer_addstatus.designer.cs">
+      <DependentUpon>202201081707153_mig_writer_addstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201082026428_mig_content_addstatus.cs" />
+    <Compile Include="Migrations\202201082026428_mig_content_addstatus.designer.cs">
+      <DependentUpon>202201082026428_mig_content_addstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201082030286_mig_heading_addstatus.cs" />
+    <Compile Include="Migrations\202201082030286_mig_heading_addstatus.designer.cs">
+      <DependentUpon>202201082030286_mig_heading_addstatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -101,6 +117,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201061842481_mig_writer_titleAdd.resx">
       <DependentUpon>202201061842481_mig_writer_titleAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201081630098_mig_writer_editimg.resx">
+      <DependentUpon>202201081630098_mig_writer_editimg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201081707153_mig_writer_addstatus.resx">
+      <DependentUpon>202201081707153_mig_writer_addstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201082026428_mig_content_addstatus.resx">
+      <DependentUpon>202201082026428_mig_content_addstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201082030286_mig_heading_addstatus.resx">
+      <DependentUpon>202201082030286_mig_heading_addstatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
