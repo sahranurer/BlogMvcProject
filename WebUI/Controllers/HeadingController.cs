@@ -16,6 +16,8 @@ namespace WebUI.Controllers
 
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         HeadingValidator hv = new HeadingValidator();
+        CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
          // GET: Heading
         public ActionResult Index()
         {
@@ -26,6 +28,30 @@ namespace WebUI.Controllers
         [HttpGet]
         public ActionResult AddHeading()
         {
+
+            List<SelectListItem> selects = (from x in cm.GetCategories()
+                                            select new SelectListItem
+                                            {
+
+                                                Text = x.CategoryName,
+                                                Value = x.CategoryId.ToString()
+
+                                            }).ToList();
+
+            List<SelectListItem> selectsWriter = (from x in wm.GetWriters()
+                                                  select new SelectListItem
+                                                  {
+
+                                                      Text = x.WriterName+" "+ x.WriterSurname,
+                                                      Value = x.WriterId.ToString()
+
+                                                  }).ToList();
+
+
+
+
+            ViewBag.vlc = selects;
+            ViewBag.vlw = selectsWriter;
             return View();
         }
 

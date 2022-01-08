@@ -15,11 +15,12 @@
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.HeadingId</td>
-            <td>@item.HeadingName</td>
-            <td>@item.Category.CategoryName</td>
-        </tr>
+<tr>
+    <td>@item.HeadingId</td>
+    <td>@item.HeadingName</td>
+    <td>@item.Category.CategoryName</td>
+    <td>@item.Writer.WriterId</td>
+</tr>
     }
 </table>
 
