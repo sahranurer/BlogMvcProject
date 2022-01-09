@@ -1,12 +1,11 @@
-﻿@using Entities.Concrete
-@model List<Contact>
-
+﻿
+@using Entities.Concrete
+@model List<Draft>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
 <!DOCTYPE html>
 <html>
 
@@ -28,16 +27,17 @@
     <section class="content">
         <div class="row">
             <div class="col-md-3">
+            
                 @Html.Action("ContactPartial", "Contact")
                 <!-- /.card -->
-               @Html.Action("ContactPartialDiger","Contact")
+                @Html.Action("ContactPartialDiger", "Contact")
                 <!-- /.card -->
             </div>
             <!-- /.col -->
             <div class="col-md-9">
                 <div class="card card-primary card-outline">
                     <div class="card-header">
-                        <h3 class="card-title">Gelen Mesajlar</h3>
+                        <h3 class="card-title">Taslaklar</h3>
                         <div class="card-tools">
                             <div class="input-group input-group-sm">
                                 <input type="text" class="form-control" placeholder="Mail Kutusunda Ara">
@@ -87,12 +87,12 @@
                                                 </div>
                                             </td>
                                             <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                                            <td class="mailbox-name"><a href="/Contact/GetContactDetails/@item.ContactId">@item.UserName</a></td>
+                                            <td class="mailbox-name"><a href="">@item.DraftReceiver</a></td>
                                             <td class="mailbox-subject">
-                                                <b>@item.Subject</b>- @item.Message.Substring(0, 30) ...
+                                                <b>@item.DraftSubject</b>- @item.DraftArea
                                             </td>
                                             <td class="mailbox-attachment"></td>
-                                            <td class="mailbox-date">@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
+                                            <td class="mailbox-date">Taslak</td>
                                         </tr>
                                     }
                                 </tbody>
@@ -180,5 +180,4 @@
     <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
 </body>
 </html>
-
 

@@ -56,7 +56,9 @@
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
+    <Compile Include="Abstract\IDraftDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
@@ -65,7 +67,9 @@
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
+    <Compile Include="EntityFramework\EfDraftDal.cs" />
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="EntityFramework\EfMessageDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202112182024494_mig1.cs" />
     <Compile Include="Migrations\202112182024494_mig1.designer.cs">
@@ -94,6 +98,18 @@
     <Compile Include="Migrations\202201082030286_mig_heading_addstatus.cs" />
     <Compile Include="Migrations\202201082030286_mig_heading_addstatus.designer.cs">
       <DependentUpon>202201082030286_mig_heading_addstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201090827259_mig_message_cls.cs" />
+    <Compile Include="Migrations\202201090827259_mig_message_cls.designer.cs">
+      <DependentUpon>202201090827259_mig_message_cls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201091215372_mig_draft_cls.cs" />
+    <Compile Include="Migrations\202201091215372_mig_draft_cls.designer.cs">
+      <DependentUpon>202201091215372_mig_draft_cls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201091341588_mig_contact_edit.cs" />
+    <Compile Include="Migrations\202201091341588_mig_contact_edit.designer.cs">
+      <DependentUpon>202201091341588_mig_contact_edit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,6 +145,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201082030286_mig_heading_addstatus.resx">
       <DependentUpon>202201082030286_mig_heading_addstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201090827259_mig_message_cls.resx">
+      <DependentUpon>202201090827259_mig_message_cls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201091215372_mig_draft_cls.resx">
+      <DependentUpon>202201091215372_mig_draft_cls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201091341588_mig_contact_edit.resx">
+      <DependentUpon>202201091341588_mig_contact_edit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

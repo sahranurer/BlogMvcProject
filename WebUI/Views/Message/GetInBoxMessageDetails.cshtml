@@ -1,8 +1,7 @@
-﻿
-@model Entities.Concrete.Contact
+﻿@model Entities.Concrete.Message
 
 @{
-    ViewBag.Title = "GetContactDetails";
+    ViewBag.Title = "GetInBoxMessageDetails";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -15,7 +14,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Compose</h1>
+                    <h1>Gelen Mesaj Detayları</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -31,9 +30,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3">
-                    @Html.Action("ContactPartial","Contact")
+                    @Html.Action("ContactPartial", "Contact")
                     <!-- /.card -->
-                    @Html.Action("ContactPartialDiger","Contact")
+                    @Html.Action("ContactPartialDiger", "Contact")
                     <!-- /.card -->
                 </div>
                 <!-- /.col -->
@@ -47,27 +46,27 @@
                             </div>
                         </div>
                         <!-- /.card-header -->
-                       
+
                         <div class="card-body p-0">
                             <div class="mailbox-read-info">
-                                <h5>Konu : @Html.DisplayFor(x=>x.Subject)</h5>
+                                <h5>Konu : @Html.DisplayFor(x => x.Subject)</h5>
                                 <br />
                                 <h6>
-                                    Gönderen: @Html.DisplayFor(x => x.UserMail)
-                                    <span class="mailbox-read-time float-right">@Model.Date.ToString("dd-MM-yyyy")</span>
+                                    Gönderen: @Html.DisplayFor(x => x.SenderMail)
+                                    <span class="mailbox-read-time float-right">@Model.MessageDate.ToString("dd-MMM-yyyy") </span>
                                 </h6>
                             </div>
                             <!-- /.mailbox-read-info -->
             
                             <!-- /.mailbox-controls -->
                             <div class="mailbox-read-message">
-                                <p>@Html.DisplayFor(x=>x.Message)</p>
-                               
+                                <p>@Html.DisplayFor(x => x.MessageContent)</p>
+
                             </div>
                             <!-- /.mailbox-read-message -->
                         </div>
                         <!-- /.card-footer -->
-                       
+
                     </div>
                     <!-- /.card -->
                 </div>

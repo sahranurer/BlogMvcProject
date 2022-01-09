@@ -7,21 +7,20 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class Contact
+    public class Message
     {
         [Key]
-        public int ContactId { get; set; }
+        public int MessageID { get; set; }
         [StringLength(50)]
-        public string UserName { get; set; }
+        public string SenderMail { get; set; }
         [StringLength(50)]
-        public string UserMail { get; set; }
-        [StringLength(50)]
+        public string ReceiverMail { get; set; }
+        [StringLength(100)]
         public string Subject { get; set; }
-     
-        public string Message { get; set; }
+        
+        public string MessageContent { get; set; }
 
-        public DateTime Date { get; set; }
-
+        public DateTime MessageDate { get; set; }
 
     }
 }

@@ -12,6 +12,7 @@ namespace WebUI.Controllers
     public class ContactController : Controller
     {
         ContactManager cm = new ContactManager(new EfContactDal());
+        MessageManager mm = new MessageManager(new EfMessageDal());
         ContactValidator cv = new ContactValidator();
         public ActionResult Index()
         {
@@ -27,6 +28,12 @@ namespace WebUI.Controllers
 
         public PartialViewResult ContactPartial()
         {
+            var results = cm.GetContacts().Count();
+            ViewBag.contact = results;
+
+            var message = mm.GetListSendbox().Count();
+            ViewBag.message = message;
+
             return PartialView();
         }
 
