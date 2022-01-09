@@ -23,10 +23,16 @@ namespace WebUI.Controllers
             return View(results);
         }
 
-        public ActionResult SendBox()
+        public ActionResult SendBox(string p)
         {
-            var results = mm.GetListSendbox();
+            var results = mm.GetListSendbox(p);
             return View(results);
+        }
+
+        public ActionResult GetDraftMessageDetails(int id)
+        {
+            var values = mm.GetById(id);
+            return View(values);
         }
 
         public ActionResult GetInBoxMessageDetails(int id)
@@ -48,25 +54,58 @@ namespace WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewMessage(Message message)
+        public ActionResult NewMessage(Message message, string button)
         {
-            ValidationResult results = mv.Validate(message);
-            if (results.IsValid)
+            ValidationResult results;
+            if (button == "draft")
             {
-                message.MessageDate = DateTime.Parse( DateTime.Now.ToShortDateString());
-                mm.Add(message);
-                return RedirectToAction("SendBox");
-            }
-            else
-            {
-                foreach (var item in results.Errors)
-                {
-                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
-                }
-            }
 
-            
+                results = mv.Validate(message);
+                if (results.IsValid)
+                {
+                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    message.isDraft = true;
+                    mm.Add(message);
+                    return RedirectToAction("Draft");
+                }
+                else
+                {
+                    foreach (var item in results.Errors)
+                    {
+                        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                    }
+                }
+
+            }
+            else if (button == "save")
+            {
+                results = mv.Validate(message);
+                if (results.IsValid)
+                {
+                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    message.isDraft = false;
+                    mm.Add(message);
+                    return RedirectToAction("SendBox");
+                }
+                else
+                {
+                    foreach (var item in results.Errors)
+                    {
+                        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                    }
+                }
+
+
+              
+            }
             return View();
+        }
+
+        public ActionResult Draft(string p)
+        {
+            var sendList = mm.GetListSendbox(p);
+            var draftList = sendList.FindAll(x => x.isDraft == true);
+            return View(draftList);
         }
 
 

@@ -1,5 +1,6 @@
 ﻿using Business.Concrete;
 using Business.ValidationRules.FluentValidation;
+using DataAccess.Concrete;
 using DataAccess.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace WebUI.Controllers
         ContactManager cm = new ContactManager(new EfContactDal());
         MessageManager mm = new MessageManager(new EfMessageDal());
         ContactValidator cv = new ContactValidator();
+        Context _context = new Context();
         public ActionResult Index()
         {
             var results = cm.GetContacts();
@@ -31,8 +33,8 @@ namespace WebUI.Controllers
             var results = cm.GetContacts().Count();
             ViewBag.contact = results;
 
-            var message = mm.GetListSendbox().Count();
-            ViewBag.message = message;
+            var receiverMail = _context.Messages.Count(x => x.ReceiverMail == "admin@gmail.com").ToString();
+            ViewBag.receiverMail = receiverMail;
 
             return PartialView();
         }

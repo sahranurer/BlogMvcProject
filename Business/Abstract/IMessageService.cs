@@ -13,7 +13,7 @@ namespace Business.Abstract
         void Update(Message message);
         void Delete(Message message);
         List<Message> GetListInbox();
-        List<Message> GetListSendbox();
+        List<Message> GetListSendbox(string p);
         Message GetById(int id);
     }
 }

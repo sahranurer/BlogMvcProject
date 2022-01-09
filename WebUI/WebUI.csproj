@@ -137,7 +137,6 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
-    <Compile Include="Controllers\DraftController.cs" />
     <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HeadingController.cs" />
@@ -2316,11 +2315,12 @@
     <Content Include="Views\Message\Inbox.cshtml" />
     <Content Include="Views\Message\SendBox.cshtml" />
     <Content Include="Views\Message\NewMessage.cshtml" />
-    <Content Include="Views\Draft\Index.cshtml" />
     <Content Include="Views\Message\GetInBoxMessageDetails.cshtml" />
     <Content Include="Views\Message\GetSendBoxMessageDetails.cshtml" />
     <Content Include="Views\ErrorPage\Page404.cshtml" />
     <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Message\Draft.cshtml" />
+    <Content Include="Views\Message\GetDraftMessageDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

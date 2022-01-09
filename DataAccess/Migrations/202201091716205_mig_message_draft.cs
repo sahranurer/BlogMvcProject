@@ -3,9 +3,15 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class mig_draft_cls : DbMigration
+    public partial class mig_message_draft : DbMigration
     {
         public override void Up()
+        {
+            AddColumn("dbo.Messages", "isDraft", c => c.Boolean(nullable: false));
+            DropTable("dbo.Drafts");
+        }
+        
+        public override void Down()
         {
             CreateTable(
                 "dbo.Drafts",
@@ -19,11 +25,7 @@
                     })
                 .PrimaryKey(t => t.DraftID);
             
-        }
-        
-        public override void Down()
-        {
-            DropTable("dbo.Drafts");
+            DropColumn("dbo.Messages", "isDraft");
         }
     }
 }

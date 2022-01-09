@@ -17,7 +17,9 @@ namespace Entities.Concrete
         public string ReceiverMail { get; set; }
         [StringLength(100)]
         public string Subject { get; set; }
-        
+
+        public bool isDraft { get; set; }
+
         public string MessageContent { get; set; }
 
         public DateTime MessageDate { get; set; }
