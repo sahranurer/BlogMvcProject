@@ -24,5 +24,9 @@ namespace Entities.Concrete
 
         public DateTime MessageDate { get; set; }
 
+        public bool IsRead { get; set; }
+
+        public bool IsImportant { get; set; }
+
     }
 }

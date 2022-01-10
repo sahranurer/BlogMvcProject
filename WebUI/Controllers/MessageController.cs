@@ -17,6 +17,7 @@ namespace WebUI.Controllers
         MessageValidator mv = new MessageValidator();
 
         // GET: Message
+        [Authorize(Roles = "B")]
         public ActionResult Inbox()
         {
             var results = mm.GetListInbox();
@@ -108,6 +109,39 @@ namespace WebUI.Controllers
             return View(draftList);
         }
 
+        public ActionResult IsRead(int id) //Bu alan gelen mesajlarindaki okundu butonundan gelen degeri DB yazar
+        {
+            var messageValue = mm.GetById(id);
+
+            if (messageValue.IsRead)
+            {
+                messageValue.IsRead = false;
+            }
+            else
+            {
+                messageValue.IsRead = true;
+            }
+
+            mm.Update(messageValue);
+            return RedirectToAction("Inbox");
+        }
+
+        public ActionResult IsImportant(int id) //Bu alan gelen mesajlarindaki önemli butonundan gelen degeri DB yazar
+        {
+            var messageValue = mm.GetById(id);
+
+            if (messageValue.IsImportant)
+            {
+                messageValue.IsImportant = false;
+            }
+            else
+            {
+                messageValue.IsImportant = true;
+            }
+
+            mm.Update(messageValue);
+            return RedirectToAction("Inbox");
+        }
 
 
     }

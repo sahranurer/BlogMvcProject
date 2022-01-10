@@ -6,7 +6,8 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+@{ string read = ""; }
+@{ string important = ""; }
 <!DOCTYPE html>
 <html>
 
@@ -30,7 +31,7 @@
             <div class="col-md-3">
                 @Html.Action("ContactPartial", "Contact")
                 <!-- /.card -->
-               @Html.Action("ContactPartialDiger","Contact")
+                @Html.Action("ContactPartialDiger", "Contact")
                 <!-- /.card -->
             </div>
             <!-- /.col -->
@@ -79,21 +80,27 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
-                                            <td>
-                                                <div class="icheck-primary">
-                                                    <input type="checkbox" value="" id="check1">
-                                                    <label for="check1"></label>
-                                                </div>
-                                            </td>
-                                            <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                                            <td class="mailbox-name"><a href="/Contact/GetContactDetails/@item.ContactId">@item.UserName</a></td>
-                                            <td class="mailbox-subject">
-                                                <b>@item.Subject</b>- @item.Message.Substring(0, 30) ...
-                                            </td>
-                                            <td class="mailbox-attachment"></td>
-                                            <td class="mailbox-date">@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
-                                        </tr>
+                                        read = (!item.IsRead) ? "warning" : "capitalize";
+                                        important = (!item.IsImportant) ? "body" : "warning";
+
+                                    <tr>
+                                        <td>
+                                            <div class="icheck-primary">
+                                                <input type="checkbox" value="" id="check1">
+                                                <label for="check1"></label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-default btn-sm" href="/Contact/IsRead/@item.ContactId"><i class="fas fa-mail-bulk text-@read"></i></a>
+                                        </td>
+                                        <td class="mailbox-star"><a href="/Contact/IsImportant/@item.ContactId"><i class="fas fa-star text-@important"></i></a></td>
+                                        <td class="mailbox-name"><a href="/Contact/GetContactDetails/@item.ContactId">@item.UserName</a></td>
+                                        <td class="mailbox-subject">
+                                            <b>@item.Subject</b>- @item.Message.Substring(0, 30) ...
+                                        </td>
+                                        <td class="mailbox-attachment"></td>
+                                        <td class="mailbox-date">@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
+                                    </tr>
                                     }
                                 </tbody>
                             </table>
@@ -140,7 +147,7 @@
     <script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
     <!-- Page Script -->
     <script>
-    $(function () {
+        $(function () {
             //Enable check and uncheck all functionality
             $('.checkbox-toggle').click(function () {
                 var clicks = $(this).data('clicks')

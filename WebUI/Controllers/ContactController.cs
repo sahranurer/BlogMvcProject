@@ -44,6 +44,41 @@ namespace WebUI.Controllers
             return PartialView();
         }
 
+        public ActionResult IsRead(int id) //Bu alan sistem mesajlarindaki okundu butonundan gelen degeri DB yazar
+        {
+            var contactValue = cm.GetbyId(id);
+
+            if (contactValue.IsRead)
+            {
+                contactValue.IsRead = false;
+            }
+            else
+            {
+                contactValue.IsRead = true;
+            }
+
+            cm.Update(contactValue);
+            return RedirectToAction("Index");
+        }
+
+
+        public ActionResult IsImportant(int id) //Bu alan sistem mesajlarindaki önemli butonundan gelen degeri DB yazar
+        {
+            var contactValue = cm.GetbyId(id);
+
+            if (contactValue.IsImportant)
+            {
+                contactValue.IsImportant = false;
+            }
+            else
+            {
+                contactValue.IsImportant = true;
+            }
+
+            cm.Update(contactValue);
+            return RedirectToAction("Index");
+        }
+
 
 
     }

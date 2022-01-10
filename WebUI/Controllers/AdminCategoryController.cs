@@ -15,7 +15,7 @@ namespace WebUI.Controllers
     {
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         // GET: AdminCategory
-        [Authorize]
+        [Authorize(Roles ="B")]
         public ActionResult Index()
         {
             var results = cm.GetCategories();

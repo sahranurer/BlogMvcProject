@@ -121,6 +121,14 @@
     <Compile Include="Migrations\202201091757314_mig_admin_add.designer.cs">
       <DependentUpon>202201091757314_mig_admin_add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201101857228_mig_contact_edit1.cs" />
+    <Compile Include="Migrations\202201101857228_mig_contact_edit1.designer.cs">
+      <DependentUpon>202201101857228_mig_contact_edit1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201101911095_mig_message_edit.cs" />
+    <Compile Include="Migrations\202201101911095_mig_message_edit.designer.cs">
+      <DependentUpon>202201101911095_mig_message_edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -170,6 +178,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201091757314_mig_admin_add.resx">
       <DependentUpon>202201091757314_mig_admin_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201101857228_mig_contact_edit1.resx">
+      <DependentUpon>202201101857228_mig_contact_edit1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201101911095_mig_message_edit.resx">
+      <DependentUpon>202201101911095_mig_message_edit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
