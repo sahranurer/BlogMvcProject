@@ -1,6 +1,8 @@
 ﻿@using Entities.Concrete
 @model List<About>
 
+@{ string status = "";}
+@{ string buttonTyp = "";}
 
 @{
     ViewBag.Title = "Index";
@@ -12,23 +14,41 @@
 <table class="table table-bordered">
     <tr>
         <th>ID</th>
-        <th>Hakkımda Başlığı</th>
-        <th>Aktif Yap</th>
-        <th>Pasif Yap</th>
+        <th>Hakkımda Başlığı - 1</th>
+        <th>Hakkımda Başlığı - 2</th>
+        <th>Hakkımda Fotoğraf 1</th>
+        <th>Hakkımda Fotoğraf 2</th>
+        <th>Durum</th>
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @item.AboutId
-            </td>
-            <td>Başlık</td>
-            <td><a href="#" class="btn btn-warning">Aktif Yap</a></td>
-            <td><a href="#" class="btn btn-danger">Pasif Yap</a></td>
-        </tr>
-    }
+        if (item.isActive == true)
+        {
+            status = "Pasif Yap";
+            buttonTyp = "btn btn-danger";
+
+
+        }
+        if (item.isActive==false)
+        {
+            status = "Aktif Yap";
+            buttonTyp = "btn btn-success";
+        }
+
+
+<tr>
+    <td>
+        @item.AboutId
+    </td>
+    <td>@item.AboutDetails1</td>
+    <td>@item.AboutDetails2</td>
+    <td>@item.AboutImage1</td>
+    <td>@item.AboutImage2</td>
+    <td><a href="/About/isActive/@item.AboutId" class="@buttonTyp">@status</a></td>
+</tr>
+}
 
 
 </table>
-@Html.Action("AboutPartial","About")
+@Html.Action("AboutPartial", "About")
 

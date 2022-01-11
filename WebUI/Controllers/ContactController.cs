@@ -36,6 +36,12 @@ namespace WebUI.Controllers
             var receiverMail = _context.Messages.Count(x => x.ReceiverMail == "admin@gmail.com").ToString();
             ViewBag.receiverMail = receiverMail;
 
+            var sendMail = _context.Messages.Count(x => x.SenderMail == "admin@gmail.com").ToString();
+            ViewBag.send = sendMail;
+
+            var draftMail = _context.Messages.Count(x => x.isDraft == true);
+            ViewBag.draft = draftMail;
+
             return PartialView();
         }
 

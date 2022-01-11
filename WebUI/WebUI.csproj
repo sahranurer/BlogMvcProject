@@ -143,6 +143,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\SkillController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
     <Compile Include="Global.asax.cs">
@@ -174,6 +175,44 @@
     <Content Include="AdminLTE-3.0.4\colorlib-error-404-6\css\style.css" />
     <Content Include="AdminLTE-3.0.4\colorlib-error-404-6\index.html" />
     <Content Include="AdminLTE-3.0.4\colorlib-error-404-6\readme.txt" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\creative-cv.png" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\css\aos.css" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\css\bootstrap.min.css" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\css\main.css" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\favicon.ico" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\anthony.jpg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\cc-bg-1.jpg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\graphic-design-1.jpg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\graphic-design-2.jpg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\graphic-design-3.jpg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\graphic-design-4.jpg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\new.jpeg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\new2.jpeg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\photography-1.jpg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\photography-2.jpg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\photography-3.jpg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\photography-4.jpg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\project-1.jpg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\project-2.jpg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\project-3.jpg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\project-4.jpg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\reference-image-1.jpg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\reference-image-2.jpg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\reference-image-3.jpg" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\images\staticmap.png" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\index.html" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\js\aos.js" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\js\core\bootstrap.min.js" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\js\core\jquery.3.2.1.min.js" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\js\core\popper.min.js" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\js\now-ui-kit.js" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\js\plugins\bootstrap-datepicker.js" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\js\plugins\bootstrap-switch.js" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\js\plugins\jquery.sharrre.js" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\js\plugins\nouislider.min.js" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\LICENSE-free.txt" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\README.txt" />
+    <Content Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\scripts\main.js" />
     <Content Include="AdminLTE-3.0.4\dist\css\adminlte.css" />
     <Content Include="AdminLTE-3.0.4\dist\css\adminlte.min.css" />
     <Content Include="AdminLTE-3.0.4\dist\css\alt\adminlte.components.css" />
@@ -2614,6 +2653,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Skill\skill.PNG" />
+    <Content Include="Views\Skill\skill2.PNG" />
     <Content Include="Views\Statistic\Statistic.PNG" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -2660,8 +2701,12 @@
     <Content Include="Views\Message\Draft.cshtml" />
     <Content Include="Views\Message\GetDraftMessageDetails.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Shared\_TalentLayout.cshtml" />
+    <Content Include="Views\Skill\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\scripts\core\" />
+    <Folder Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\scripts\plugins\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>

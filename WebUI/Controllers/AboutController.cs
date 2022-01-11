@@ -38,7 +38,22 @@ namespace WebUI.Controllers
             return PartialView();
         }
 
-
+        public ActionResult isActive(int id)
+        {
+            var value = am.GetById(id);
+            if (value.isActive)
+            {
+                value.isActive = false;
+            }
+            else
+            {
+                value.isActive = true;
+            }
+            am.Update(value);
+            return RedirectToAction("Index");
+        }
 
     }
+
+
 }
