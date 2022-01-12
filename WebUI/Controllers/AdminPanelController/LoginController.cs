@@ -13,6 +13,7 @@ using System.Web.Security;
 
 namespace WebUI.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         [HttpGet]

@@ -16,6 +16,7 @@ namespace WebUI.Controllers
         MessageManager mm = new MessageManager(new EfMessageDal());
         ContactValidator cv = new ContactValidator();
         Context _context = new Context();
+       
         public ActionResult Index()
         {
             var results = cm.GetContacts();

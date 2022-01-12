@@ -14,5 +14,6 @@ namespace Business.Abstract
         void Delete(Heading heading);
         List<Heading> GetHeadings();
         Heading GetById(int id);
+        List<Heading> GetHeadingsByWriter(int id);
     }
 }

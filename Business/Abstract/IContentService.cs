@@ -13,6 +13,7 @@ namespace Business.Abstract
         void Delete(Content content);
         void Update(Content content);
         List<Content> GetContents();
+        List<Content> GetContentsByWriter(int id);
         Content GetById(int id);
         List<Content> GetListByHeadingId(int id);
     }

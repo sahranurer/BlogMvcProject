@@ -40,6 +40,11 @@ namespace Business.Concrete
             return _headingDal.List();
         }
 
+        public List<Heading> GetHeadingsByWriter(int id)
+        {
+            return _headingDal.List(x => x.WriterId == id);
+        }
+
         public void Update(Heading heading)
         {
             _headingDal.Update(heading);
