@@ -1,5 +1,6 @@
 ﻿using Business.Concrete;
 using Business.ValidationRules.FluentValidation;
+using DataAccess.Concrete;
 using DataAccess.EntityFramework;
 using Entities.Concrete;
 using FluentValidation.Results;
@@ -15,9 +16,11 @@ namespace WebUI.Controllers.WriterPanelController
     {
         MessageManager mm = new MessageManager(new EfMessageDal());
         MessageValidator mv = new MessageValidator();
-        public ActionResult Inbox()
+        public ActionResult Inbox(string p)
         {
-            var results = mm.GetListInbox();
+             p = (string)Session["WriterMail"];
+            
+            var results = mm.GetListInbox(p);
             return View(results);
         }
 
@@ -27,6 +30,7 @@ namespace WebUI.Controllers.WriterPanelController
         }
         public ActionResult SendBox(string p)
         {
+            p = (string)Session["WriterMail"];
             var results = mm.GetListSendbox(p);
             return View(results);
         }
@@ -66,12 +70,14 @@ namespace WebUI.Controllers.WriterPanelController
         public ActionResult NewMessage(Message message, string button)
         {
             ValidationResult results;
+            string sender = (string)Session["WriterMail"];
             if (button == "draft")
             {
 
                 results = mv.Validate(message);
                 if (results.IsValid)
                 {
+                    message.SenderMail = sender;
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     message.isDraft = true;
                     mm.Add(message);
@@ -91,6 +97,7 @@ namespace WebUI.Controllers.WriterPanelController
                 results = mv.Validate(message);
                 if (results.IsValid)
                 {
+                    message.SenderMail = sender;
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     message.isDraft = false;
                     mm.Add(message);

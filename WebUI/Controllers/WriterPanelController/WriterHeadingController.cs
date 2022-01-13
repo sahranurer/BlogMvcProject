@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
+using PagedList;
 
 namespace WebUI.Controllers.WriterPanelController
 {
@@ -82,9 +84,9 @@ namespace WebUI.Controllers.WriterPanelController
             return RedirectToAction("MyHeading");
         }
 
-        public ActionResult AllHeading()
+        public ActionResult AllHeading(int page=1)
         {
-            var allheadings = hm.GetHeadings();
+            var allheadings = hm.GetHeadings().ToPagedList(page,4);
             return View(allheadings);
         }
 

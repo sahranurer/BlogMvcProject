@@ -18,9 +18,9 @@ namespace WebUI.Controllers
 
         // GET: Message
         [Authorize(Roles = "B")]
-        public ActionResult Inbox()
+        public ActionResult Inbox(string p)
         {
-            var results = mm.GetListInbox();
+            var results = mm.GetListInbox(p);
             return View(results);
         }
 

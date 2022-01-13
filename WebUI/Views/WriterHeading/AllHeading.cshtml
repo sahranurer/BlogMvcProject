@@ -1,11 +1,13 @@
 ﻿@using Entities.Concrete
-@model List<Heading>
+@model PagedList.IPagedList<Heading>
+@using PagedList.Mvc
+@using PagedList
 
 @{
     ViewBag.Title = "AllHeading";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
-
+<link href="~/Content/PagedList.css" rel="stylesheet" />
 @{ string color = "";}
 @{ string durum = "";}
 <!DOCTYPE html>
@@ -127,5 +129,6 @@
     </section>
 </body>
 </html>
+@Html.PagedListPager((IPagedList)Model,page=>Url.Action("AllHeading", new { page }))
 
 

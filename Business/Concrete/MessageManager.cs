@@ -39,9 +39,9 @@ namespace Business.Concrete
             return _messageDal.List(x => x.SenderMail == p);
         }
 
-        public List<Message> GetListInbox()
+        public List<Message> GetListInbox(string p)
         {
-            return _messageDal.List(x=>x.ReceiverMail=="admin@gmail.com");
+            return _messageDal.List(x=>x.ReceiverMail==p);
         }
 
         public void Update(Message message)
