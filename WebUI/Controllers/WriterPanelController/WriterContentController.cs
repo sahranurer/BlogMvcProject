@@ -1,5 +1,6 @@
 ﻿using Business.Concrete;
 using DataAccess.EntityFramework;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,5 +21,28 @@ namespace WebUI.Controllers.WriterPanelController
             var values = cm.GetContentsByWriter(writerinfo);
             return View(values);
         }
+        [HttpGet]
+        public ActionResult AddContent(int id)
+        {
+            ViewBag.d = id;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddContent(Content content)
+        {
+            content.ContentDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            string mail = (string)Session["WriterMail"];
+            var writerinfo = wm.GetWriters().Where(x => x.WriterMail == mail).Select(y => y.WriterId).FirstOrDefault();
+            content.WriterId = writerinfo;
+            content.ContentStatus = true;
+            cm.Add(content);
+            return RedirectToAction("MyContent");
+        }
+
+        public ActionResult ToDoList()
+        {
+            return View();
+        }
+
     }
 }

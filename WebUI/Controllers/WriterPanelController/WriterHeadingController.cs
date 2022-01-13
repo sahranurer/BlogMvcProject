@@ -82,6 +82,11 @@ namespace WebUI.Controllers.WriterPanelController
             return RedirectToAction("MyHeading");
         }
 
+        public ActionResult AllHeading()
+        {
+            var allheadings = hm.GetHeadings();
+            return View(allheadings);
+        }
 
     }
 }

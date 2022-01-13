@@ -2965,6 +2965,9 @@
     <Content Include="Views\WriterLogin\WriterLogin.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\Default\DefaultHeadings.cshtml" />
+    <Content Include="Views\WriterHeading\AllHeading.cshtml" />
+    <Content Include="Views\WriterContent\AddContent.cshtml" />
+    <Content Include="Views\WriterContent\ToDoList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\scripts\core\" />
