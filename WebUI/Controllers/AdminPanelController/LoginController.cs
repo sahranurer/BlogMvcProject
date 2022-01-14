@@ -16,6 +16,8 @@ namespace WebUI.Controllers
     [AllowAnonymous]
     public class LoginController : Controller
     {
+        AdminManager am = new AdminManager(new EfAdminDal());
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -30,8 +32,7 @@ namespace WebUI.Controllers
             //string SifrelenmisVeri = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(SifrelenecekVeri)));
             //admin.AdminPassword = SifrelenmisVeri;
 
-            AdminManager am = new AdminManager(new EfAdminDal());
-            var results = am.GetAdmins().FirstOrDefault(x => x.AdminUserName == admin.AdminUserName && x.AdminPassword == admin.AdminPassword);
+            var results = am.GetAdmin(admin.AdminUserName, admin.AdminPassword);
             if (results!=null)
             {
                 FormsAuthentication.SetAuthCookie(results.AdminUserName,false);

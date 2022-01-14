@@ -13,6 +13,9 @@ namespace WebUI.Controllers.WriterPanelController
     [AllowAnonymous]
     public class WriterLoginController : Controller
     {
+
+        WriterLoginManager wlm = new WriterLoginManager(new EfWriterDal());
+
         // GET: WriterLogin
         [HttpGet]
         public ActionResult WriterLogin()
@@ -22,8 +25,8 @@ namespace WebUI.Controllers.WriterPanelController
         [HttpPost]
         public ActionResult WriterLogin(Writer writer)
         {
-            WriterManager wm = new WriterManager(new EfWriterDal());
-            var results = wm.GetWriters().FirstOrDefault(x=>x.WriterMail==writer.WriterMail && x.WriterPassword==writer.WriterPassword);
+            var results = wlm.GetWriter(writer.WriterMail, writer.WriterPassword);
+
             if (results != null)
             {
                 FormsAuthentication.SetAuthCookie(results.WriterMail, false);
@@ -35,11 +38,12 @@ namespace WebUI.Controllers.WriterPanelController
                 return RedirectToAction("WriterLogin");
             }
         }
+      
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
             Session.Abandon();
-            return RedirectToAction("Headings", "Default");
+            return RedirectToAction("DefaultHeadings", "Default");
         }
     }
 }

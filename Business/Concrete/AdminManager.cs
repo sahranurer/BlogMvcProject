@@ -28,6 +28,11 @@ namespace Business.Concrete
             _adminDal.Delete(admin);
         }
 
+        public Admin GetAdmin(string username, string password)
+        {
+            return _adminDal.Get(x => x.AdminUserName == username && x.AdminPassword == password);
+        }
+
         public List<Admin> GetAdmins()
         {
             return _adminDal.List();

@@ -14,5 +14,6 @@ namespace Business.Abstract
         void Update(Admin admin);
         List<Admin> GetAdmins();
         Admin GetById(int id);
+        Admin GetAdmin(string username,string password);
     }
 }
