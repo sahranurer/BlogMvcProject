@@ -141,6 +141,7 @@
     <Compile Include="Controllers\AdminPanelController\AboutController.cs" />
     <Compile Include="Controllers\AdminPanelController\AdminCategoryController.cs" />
     <Compile Include="Controllers\AdminPanelController\CategoryController.cs" />
+    <Compile Include="Controllers\AdminPanelController\ChartController.cs" />
     <Compile Include="Controllers\AdminPanelController\ContactController.cs" />
     <Compile Include="Controllers\AdminPanelController\ContentController.cs" />
     <Compile Include="Controllers\AdminPanelController\ErrorPageController.cs" />
@@ -161,6 +162,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoryClass.cs" />
+    <Compile Include="Models\HeadingClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles\AdminRoleProvider.cs" />
   </ItemGroup>
@@ -3044,12 +3047,13 @@
     <Content Include="Views\Home\HomePage.cshtml" />
     <Content Include="Views\Content\Index.cshtml" />
     <Content Include="Views\Content\GetAllContent.cshtml" />
+    <Content Include="Views\Chart\Index.cshtml" />
+    <Content Include="Views\Chart\HeadingPieChart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\scripts\core\" />
     <Folder Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\scripts\plugins\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
