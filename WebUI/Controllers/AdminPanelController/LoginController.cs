@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using CaptchaMvc.HtmlHelpers;
 using DataAccess.Concrete;
 using DataAccess.EntityFramework;
 using Entities.Concrete;
@@ -32,17 +33,37 @@ namespace WebUI.Controllers
             //string SifrelenmisVeri = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(SifrelenecekVeri)));
             //admin.AdminPassword = SifrelenmisVeri;
 
+
             var results = am.GetAdmin(admin.AdminUserName, admin.AdminPassword);
             if (results!=null)
             {
-                FormsAuthentication.SetAuthCookie(results.AdminUserName,false);
-                Session["AdminUserName"] = results.AdminUserName;
-                return RedirectToAction("Index", "AdminCategory");
+                if (!this.IsCaptchaValid(""))
+                {
+                    ViewBag.ErrorMessage = "Captcha geçerli değil";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    FormsAuthentication.SetAuthCookie(results.AdminUserName, false);
+                    Session["AdminUserName"] = results.AdminUserName;
+                    return RedirectToAction("Index", "AdminCategory");
+                }
+              
             }
             else
             {
                 return RedirectToAction("Index");
             }
+
+          
+
+        }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("DefaultHeadings", "Default");
         }
 
 

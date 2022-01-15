@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using CaptchaMvc.HtmlHelpers;
 using DataAccess.EntityFramework;
 using Entities.Concrete;
 using System;
@@ -29,9 +30,17 @@ namespace WebUI.Controllers.WriterPanelController
 
             if (results != null)
             {
-                FormsAuthentication.SetAuthCookie(results.WriterMail, false);
-                Session["WriterMail"] = results.WriterMail;
-                return RedirectToAction("MyContent", "WriterContent");
+                if (!this.IsCaptchaValid(""))
+                {
+                    ViewBag.ErrorMessage = "Captcha geçerli değil";
+                    return RedirectToAction("WriterLogin");
+                }
+                else
+                {
+                    FormsAuthentication.SetAuthCookie(results.WriterMail, false);
+                    Session["WriterMail"] = results.WriterMail;
+                    return RedirectToAction("MyContent", "WriterContent");
+                }
             }
             else
             {
