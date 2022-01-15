@@ -26,6 +26,13 @@ namespace WebUI.Controllers
             return View(values);
         }
 
+        public ActionResult HeadingReport()
+        {
+            var values = hm.GetHeadings();
+            return View(values);
+        }
+
+
         [HttpGet]
         public ActionResult AddHeading()
         {

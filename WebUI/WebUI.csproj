@@ -147,6 +147,7 @@
     <Compile Include="Controllers\AdminPanelController\ErrorPageController.cs" />
     <Compile Include="Controllers\AdminPanelController\GalleryController.cs" />
     <Compile Include="Controllers\AdminPanelController\HeadingController.cs" />
+    <Compile Include="Controllers\AuthorizationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AdminPanelController\LoginController.cs" />
     <Compile Include="Controllers\AdminPanelController\MessageController.cs" />
@@ -2239,7 +2240,6 @@
     <Content Include="AdminLTE-3.0.4\web\css\simpleLightbox.css" />
     <Content Include="AdminLTE-3.0.4\web\css\snow.css" />
     <Content Include="AdminLTE-3.0.4\web\css\style.css" />
-    <Content Include="AdminLTE-3.0.4\web\images\banner.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\close.png" />
     <Content Include="AdminLTE-3.0.4\web\images\contact.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\exp.jpg" />
@@ -2254,6 +2254,7 @@
     <Content Include="AdminLTE-3.0.4\web\images\g9.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\loader.gif" />
     <Content Include="AdminLTE-3.0.4\web\images\move_up.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\new2.jpeg" />
     <Content Include="AdminLTE-3.0.4\web\images\next.png" />
     <Content Include="AdminLTE-3.0.4\web\images\prev.png" />
     <Content Include="AdminLTE-3.0.4\web\images\serve.jpg" />
@@ -3049,6 +3050,10 @@
     <Content Include="Views\Content\GetAllContent.cshtml" />
     <Content Include="Views\Chart\Index.cshtml" />
     <Content Include="Views\Chart\HeadingPieChart.cshtml" />
+    <Content Include="Views\Heading\HeadingReport.cshtml" />
+    <Content Include="Views\Authorization\Index.cshtml" />
+    <Content Include="Views\Authorization\AddAdmin.cshtml" />
+    <Content Include="Views\Authorization\EditAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminLTE-3.0.4\creative-cv_free_1-1-0\scripts\core\" />

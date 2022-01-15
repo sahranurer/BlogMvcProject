@@ -39,6 +39,7 @@ namespace WebUI.Controllers
         {
             CategoryValidator categoryValidator = new CategoryValidator();
             ValidationResult results = categoryValidator.Validate(c);
+          
             if (results.IsValid)
             {
                 cm.Add(c);
