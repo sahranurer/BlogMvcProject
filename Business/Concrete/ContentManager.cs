@@ -34,6 +34,11 @@ namespace Business.Concrete
             return _contentDal.Get(x => x.ContentId == id);
         }
 
+        public List<Content> GetContents(string p)
+        {
+            return _contentDal.List(x=>x.ContentValue.Contains(p));
+        }
+
         public List<Content> GetContents()
         {
             return _contentDal.List();
