@@ -2,6 +2,8 @@
 
 Its about Blog Web Site - Mvc
 
+#### Oluşturulan Projenin Web Adresi : https://sahranurer.com/
+
 #### Projede Kullandığım Teknolojiler 
 - EntityFramework 
 - Mvc 
